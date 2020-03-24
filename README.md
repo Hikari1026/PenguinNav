@@ -1,4 +1,4 @@
-# Penguin
+# PenguinNav
 WPF Application that allows to control a ROV Rpi powered. Still a work in prgress
 
 TO DO
