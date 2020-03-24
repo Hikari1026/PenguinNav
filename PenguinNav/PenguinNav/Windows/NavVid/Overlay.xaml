@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="PenguinNav.Windows.NavVid.Overlay"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PenguinNav.Windows.NavVid"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <!-- Opening SideMenu-->
+        <Storyboard x:Key="OpenMenu">
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0 0 -225 0" To="0 0 0 0" DecelerationRatio="0.9" Duration="0:0:0.5" />
+        </Storyboard>
+
+        <!-- Closing SideMenu-->
+        <Storyboard x:Key="CloseMenu">
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0 0 0 0" To="0 0 -225 0" DecelerationRatio="0.9" Duration="0:0:0.5" />
+        </Storyboard>
+
+    </UserControl.Resources>
+
+
+    <Grid>
+        <Grid>
+
+            <!-- Left Slider -->
+            <Image Source="/Resources/GUI/LeftSlider.png" HorizontalAlignment="Center"
+                       Height="250" Margin="0 0 290 0">
+                <Image.RenderTransform>
+                    <RotateTransform CenterX="180" CenterY="125" Angle="{Binding LeftSliderAngle}" />
+                </Image.RenderTransform>
+            </Image>
+
+            <!-- Right Slider-->
+            <Image Source="/Resources/GUI/RightSlider.png" HorizontalAlignment="Center"
+                       Height="250" Margin="290 0 0 0">
+                <Image.RenderTransform>
+                    <RotateTransform CenterX="-112" CenterY="125" Angle="{Binding RightSliderAngle}" />
+                </Image.RenderTransform>
+            </Image>
+
+            <!-- Circle -->
+            <Image Source="/Resources/GUI/Circle.png" HorizontalAlignment="Center"
+                       VerticalAlignment="Center" Width="300"/>
+
+            <!-- Compass -->
+            <Image Source="/Resources/GUI/Compass_Bold.png" HorizontalAlignment="Center"
+                       Width="300" VerticalAlignment="Center" Margin="0 0 0 70">
+                <Image.RenderTransform>
+                    <RotateTransform CenterX="150" CenterY="150" Angle="{Binding GyroIndicator}" />
+                </Image.RenderTransform>
+            </Image>
+
+            <!-- Crossair -->
+            <Image Source="/Resources/GUI/Crossair.png" HorizontalAlignment="Center"
+                       VerticalAlignment="Center" Width="40" />
+
+            <!-- Base -->
+            <Image Source="/Resources/GUI/Base_Bold.png" HorizontalAlignment="Center"
+                       VerticalAlignment="Center" Width="255" Margin="0 290 0 0"/>
+
+        </Grid>
+
+        <StackPanel>
+
+            <TextBlock Text="LSLider value" Foreground="White" />
+            <Slider Minimum="-90" Maximum="0" HorizontalAlignment="Left" Width="200" Name="LSValue" ValueChanged="LSValue_ValueChanged" />
+            <TextBlock Text="RSlider value" Foreground="White" />
+            <Slider Minimum="0" Maximum="90" HorizontalAlignment="Left" Width="200" Name="RSValue" ValueChanged="RSValue_ValueChanged" />
+            <TextBlock Text="GyroIndicator value" Foreground="White" />
+            <Slider Minimum="0" Maximum="360" HorizontalAlignment="Left" Width="200" Name="GVaue" ValueChanged="GVaue_ValueChanged" />
+
+            <Button Width="50" Height="30" Content="Open" HorizontalAlignment="Left" Click="Button_Click"/>
+            <Button Width="50" Height="30" Content="Close" HorizontalAlignment="Left" Click="Button_Click_1"/>
+
+        </StackPanel>
+
+
+
+        <!-- SideMenu Content -->
+        <StackPanel Panel.ZIndex="2" Name="SideMenu" Orientation="Horizontal" 
+                    Height="600" HorizontalAlignment="Right" Margin="0 0 -225 0" >
+
+            <Border BorderBrush="BlueViolet" BorderThickness="1" Width="225" Background="GhostWhite" >
+                <TextBox Text="cyka blyat" Foreground="Aqua" />
+            </Border>
+
+        </StackPanel>
+    </Grid>
+
+</UserControl>
