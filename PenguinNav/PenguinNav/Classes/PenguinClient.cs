@@ -9,9 +9,8 @@ namespace PenguinNav
     class PenguinClient
     {
         //Get IP address and port and combine them into an IPEndPont
-        public int port;
         public IPAddress ipAddress;
-        IPEndPoint ipEndpoint => new IPEndPoint(ipAddress, port);
+        IPEndPoint ipEndpoint => new IPEndPoint(ipAddress, 8080);
 
         public Socket clientSocket;
 
