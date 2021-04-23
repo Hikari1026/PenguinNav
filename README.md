@@ -5,3 +5,5 @@ TO DO
 - XInput implementation (DirectInput works fine though)
 - Setting up real data and elements (only dummy data was tested)
 - Finish UI Elements and add behaviour with joypad implementation
+
+Also the directories are kind of a mess
